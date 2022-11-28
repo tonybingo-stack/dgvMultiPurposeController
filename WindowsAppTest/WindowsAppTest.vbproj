@@ -120,9 +120,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DgvMultiPurpose\DgvMultiPurpose.vbproj">
-      <Project>{2C674358-25CD-47D1-8C8D-9D8B2DFE73B7}</Project>
-      <Name>DgvMultiPurpose</Name>
+    <ProjectReference Include="..\MPCController\MPCController.csproj">
+      <Project>{EAAFEF0E-5973-4F40-849F-7EA7C1E416D2}</Project>
+      <Name>MPCController</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
