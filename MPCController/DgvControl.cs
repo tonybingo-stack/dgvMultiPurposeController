@@ -26,6 +26,7 @@ namespace MPCController
 
             // checkBox
             //checkbox_field[rowIndex] = CheckOnlyOneRow1;
+            CheckOnlyOneRow1.CheckedChanged += new EventHandler(CheckBox_CheckedChanged);
             checkbox_field.Add(CheckOnlyOneRow1);
 
             //ID
@@ -51,7 +52,8 @@ namespace MPCController
 
         private void CheckOnlyOneRow_CheckedChanged(object sender, EventArgs e)
         {
-            RowControlAdd("ok1", "ok2", "ComboBox", "");
+            //RowControlAdd("ok1", "ok2", "ComboBox", "");
+            RowControlAdd("ok1", "ok2", "DateTimePicker", "");
         }
 
         private void TableLayoutPanel_Paint(object sender, PaintEventArgs e)
@@ -59,6 +61,25 @@ namespace MPCController
 
             //MessageBox.Show("ok");
 
+        }
+        protected void CheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            //Label1.Text = "Called";
+            CheckBox chk = sender as CheckBox;
+            //MessageBox.Show(chk.TabIndex.ToString());
+            int index = chk.TabIndex;
+            if (chk.Checked && CheckOnlyOneRow.Checked)
+            {
+                CheckOnlyOneCheckBox(index-1);
+            }
+        }
+        protected void CheckOnlyOneCheckBox(int index)
+        {
+            for(int i = 0; i < rowIndex; i++)
+            {
+                if (i == index) continue;
+                checkbox_field[i].Checked = false;
+            }
         }
         public int RowControlAdd(string ID, string Name, string mpcControlType, string mpcControlSettings)
         {
@@ -72,21 +93,15 @@ namespace MPCController
             //checkbox_field[rowIndex] = new CheckBox();
             CheckBox chkBox = new CheckBox();
 
-            //checkbox_field[rowIndex].Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            //checkbox_field[rowIndex].AutoSize = true;
-            //checkbox_field[rowIndex].Location = new System.Drawing.Point(59, 39);
-            //checkbox_field[rowIndex].Name = "checkonlyonerow" + rowIndex.ToString();
-            //checkbox_field[rowIndex].Size = new System.Drawing.Size(15, 14);
-            //checkbox_field[rowIndex].TabIndex = 2;
-            //checkbox_field[rowIndex].UseVisualStyleBackColor = true;
-
             chkBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             chkBox.AutoSize = true;
             chkBox.Location = new System.Drawing.Point(59, 39);
             chkBox.Name = "checkonlyonerow" + rowIndex.ToString();
             chkBox.Size = new System.Drawing.Size(15, 14);
-            chkBox.TabIndex = 2;
+            chkBox.TabIndex = rowIndex;
+            chkBox.TabStop = false;
             chkBox.UseVisualStyleBackColor = true;
+            chkBox.CheckedChanged += new EventHandler(CheckBox_CheckedChanged);
 
             DgvTableLayoutPanel.Controls.Add(chkBox, 0, rowIndex);
             checkbox_field.Add(chkBox);
@@ -95,21 +110,15 @@ namespace MPCController
             //ID_field[rowIndex] = new TextBox();
             TextBox txtBox = new TextBox();
 
-            //ID_field[rowIndex].Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            //ID_field[rowIndex].Location = new System.Drawing.Point(135, 33);
-            //ID_field[rowIndex].Name = "ID" + rowIndex.ToString();
-            //ID_field[rowIndex].ReadOnly = true;
-            //ID_field[rowIndex].Size = new System.Drawing.Size(100, 20);
-            //ID_field[rowIndex].TabIndex = 2;
-            //ID_field[rowIndex].Text = ID;
-            //ID_field[rowIndex].TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-
             txtBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             txtBox.Location = new System.Drawing.Point(135, 33);
             txtBox.Name = "ID" + rowIndex.ToString();
+            txtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            txtBox.Margin = new System.Windows.Forms.Padding(0);
             txtBox.ReadOnly = true;
             txtBox.Size = new System.Drawing.Size(100, 20);
             txtBox.TabIndex = 2;
+            txtBox.TabStop = false;
             txtBox.Text = ID;
             txtBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 
@@ -132,9 +141,12 @@ namespace MPCController
             txtBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             txtBox.Location = new System.Drawing.Point(243, 33);
             txtBox.Name = "Name" + rowIndex.ToString();
+            txtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            txtBox.Margin = new System.Windows.Forms.Padding(0);
             txtBox.ReadOnly = true;
             txtBox.Size = new System.Drawing.Size(100, 20);
             txtBox.TabIndex = 1;
+            txtBox.TabStop = false;
             txtBox.Text = Name;
             txtBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 
@@ -152,6 +164,7 @@ namespace MPCController
 
                 dtPicker.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
                 dtPicker.Location = new System.Drawing.Point(351, 33);
+                dtPicker.Margin = new System.Windows.Forms.Padding(0);
                 dtPicker.Name = "MPC" + rowIndex.ToString();
                 dtPicker.Size = new System.Drawing.Size(200, 20);
                 dtPicker.TabIndex = 3;
@@ -168,6 +181,7 @@ namespace MPCController
                 cbBox.Items.AddRange(new object[] {
                 "Yes",
                 "No"});
+                cbBox.Margin = new System.Windows.Forms.Padding(0);
                 cbBox.Name = "MPC" + rowIndex.ToString();
                 cbBox.TabIndex = 7;
                 cbBox.Text = "None";
@@ -208,7 +222,9 @@ namespace MPCController
             ActionComboBox.Location = new System.Drawing.Point(559, 32);
             ActionComboBox.Name = "Action" + rowIndex.ToString();
             ActionComboBox.Size = new System.Drawing.Size(121, 21);
+            ActionComboBox.Margin = new System.Windows.Forms.Padding(0);
             ActionComboBox.TabIndex = rowIndex;
+            ActionComboBox.TabStop = false;
             ActionComboBox.Text = "None";
             ActionComboBox.SelectedIndexChanged += new EventHandler(ActionColumnSelected);
 
