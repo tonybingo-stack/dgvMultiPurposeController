@@ -45,7 +45,8 @@
             // DgvTableLayoutPanel
             // 
             this.DgvTableLayoutPanel.AutoSize = true;
-            this.DgvTableLayoutPanel.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetDouble;
+            this.DgvTableLayoutPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.DgvTableLayoutPanel.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.DgvTableLayoutPanel.ColumnCount = 5;
             this.DgvTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.DgvTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -76,7 +77,7 @@
             // 
             this.ID1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.ID1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ID1.Location = new System.Drawing.Point(166, 49);
+            this.ID1.Location = new System.Drawing.Point(162, 51);
             this.ID1.Margin = new System.Windows.Forms.Padding(0);
             this.ID1.Name = "ID1";
             this.ID1.ReadOnly = true;
@@ -89,7 +90,7 @@
             // MPC1
             // 
             this.MPC1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.MPC1.Location = new System.Drawing.Point(436, 42);
+            this.MPC1.Location = new System.Drawing.Point(428, 44);
             this.MPC1.Margin = new System.Windows.Forms.Padding(0);
             this.MPC1.Name = "MPC1";
             this.MPC1.Size = new System.Drawing.Size(265, 22);
@@ -99,7 +100,7 @@
             // 
             this.Name1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.Name1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Name1.Location = new System.Drawing.Point(301, 49);
+            this.Name1.Location = new System.Drawing.Point(295, 51);
             this.Name1.Margin = new System.Windows.Forms.Padding(0);
             this.Name1.Name = "Name1";
             this.Name1.ReadOnly = true;
@@ -113,7 +114,7 @@
             // 
             this.CheckOnlyOneRow1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.CheckOnlyOneRow1.AutoSize = true;
-            this.CheckOnlyOneRow1.Location = new System.Drawing.Point(74, 47);
+            this.CheckOnlyOneRow1.Location = new System.Drawing.Point(72, 49);
             this.CheckOnlyOneRow1.Margin = new System.Windows.Forms.Padding(0);
             this.CheckOnlyOneRow1.Name = "CheckOnlyOneRow1";
             this.CheckOnlyOneRow1.Size = new System.Drawing.Size(18, 17);
@@ -125,7 +126,7 @@
             // 
             this.label_Action.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label_Action.AutoSize = true;
-            this.label_Action.Location = new System.Drawing.Point(760, 15);
+            this.label_Action.Location = new System.Drawing.Point(756, 16);
             this.label_Action.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_Action.Name = "label_Action";
             this.label_Action.Size = new System.Drawing.Size(47, 17);
@@ -136,7 +137,7 @@
             // 
             this.CheckOnlyOneRow.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.CheckOnlyOneRow.AutoSize = true;
-            this.CheckOnlyOneRow.Location = new System.Drawing.Point(7, 7);
+            this.CheckOnlyOneRow.Location = new System.Drawing.Point(5, 8);
             this.CheckOnlyOneRow.Margin = new System.Windows.Forms.Padding(4);
             this.CheckOnlyOneRow.Name = "CheckOnlyOneRow";
             this.CheckOnlyOneRow.Size = new System.Drawing.Size(152, 21);
@@ -151,7 +152,7 @@
             // 
             this.label_MPC.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label_MPC.AutoSize = true;
-            this.label_MPC.Location = new System.Drawing.Point(550, 15);
+            this.label_MPC.Location = new System.Drawing.Point(542, 16);
             this.label_MPC.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_MPC.Name = "label_MPC";
             this.label_MPC.Size = new System.Drawing.Size(37, 17);
@@ -162,7 +163,7 @@
             // 
             this.label_ID.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label_ID.AutoSize = true;
-            this.label_ID.Location = new System.Drawing.Point(221, 15);
+            this.label_ID.Location = new System.Drawing.Point(217, 16);
             this.label_ID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_ID.Name = "label_ID";
             this.label_ID.Size = new System.Drawing.Size(21, 17);
@@ -173,7 +174,7 @@
             // 
             this.label_Name.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label_Name.AutoSize = true;
-            this.label_Name.Location = new System.Drawing.Point(344, 15);
+            this.label_Name.Location = new System.Drawing.Point(338, 16);
             this.label_Name.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_Name.Name = "label_Name";
             this.label_Name.Size = new System.Drawing.Size(45, 17);
@@ -185,15 +186,15 @@
             this.Action1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.Action1.FormattingEnabled = true;
             this.Action1.Items.AddRange(new object[] {
+            "Select an action",
             "Today",
             "Today+7d"});
-            this.Action1.Location = new System.Drawing.Point(704, 40);
+            this.Action1.Location = new System.Drawing.Point(700, 42);
             this.Action1.Margin = new System.Windows.Forms.Padding(0);
             this.Action1.Name = "Action1";
             this.Action1.Size = new System.Drawing.Size(160, 24);
             this.Action1.TabIndex = 0;
             this.Action1.TabStop = false;
-            this.Action1.Text = "None";
             // 
             // DgvControl
             // 

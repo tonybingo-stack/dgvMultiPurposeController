@@ -196,12 +196,14 @@ namespace MPCController
             if (string.Compare(mpcControlType, "DateTimePicker") == 0)
             {
                 ActionComboBox.Items.AddRange(new object[] {
+                "Select an action",
                 "Today",
                 "Today+7d"});
             }
             else if (string.Compare(mpcControlType, "ComboBox") == 0)
             {
                 ActionComboBox.Items.AddRange(new object[] {
+                "Select an action",
                 "Yes",
                 "No"});
             }
@@ -216,7 +218,7 @@ namespace MPCController
             ActionComboBox.Margin = new System.Windows.Forms.Padding(0);
             ActionComboBox.TabIndex = rowIndex;
             ActionComboBox.TabStop = false;
-            ActionComboBox.Text = "None";
+            ActionComboBox.SelectedIndex = 0;
             ActionComboBox.SelectedIndexChanged += new EventHandler(ActionColumnSelected);
 
             DgvTableLayoutPanel.Controls.Add(ActionComboBox, 4, rowIndex+1);
@@ -226,9 +228,11 @@ namespace MPCController
         private void ActionColumnSelected(object sender, EventArgs e)
         {
             ComboBox cmb = sender as ComboBox;
+            if (cmb.SelectedIndex == 0) return;
             string action = cmb.Text;
             int rowIndex_cmb = cmb.TabIndex;
-            //MessageBox.Show(rowIndex_cmb.ToString());
+            int sid = cmb.SelectedIndex;
+            //MessageBox.Show(sid.ToString());
 
             string ID_cmb = ID_field[rowIndex_cmb].Text;
             string Name_cmb = Name_field[rowIndex_cmb].Text;
@@ -248,9 +252,10 @@ namespace MPCController
             }
             else if (MPCType_cmb == "ComboBox")
             {
-                ((ComboBox)MPC_cmb).SelectedIndex = cmb.SelectedIndex;
+                ((ComboBox)MPC_cmb).SelectedIndex = sid-1;
             }
-
+            cmb.SelectedIndex = 0;
+            //cmb.Text = "Select an action";
             //MessageBox.Show(ID_cmb + ":" + Name_cmb + ":" + MPCType_cmb + ":" + action + ":" + checkbox_field[rowIndex_cmb].Checked.ToString());
         }
 
@@ -372,12 +377,14 @@ namespace MPCController
             if (string.Compare(d[3], "DateTimePicker") == 0)
             {
                 ActionComboBox.Items.AddRange(new object[] {
+                "Select an action",
                 "Today",
                 "Today+7d"});
             }
             else if (string.Compare(d[3], "ComboBox") == 0)
             {
                 ActionComboBox.Items.AddRange(new object[] {
+                "Select an action",
                 "Yes",
                 "No"});
             }
@@ -392,7 +399,7 @@ namespace MPCController
             ActionComboBox.Margin = new System.Windows.Forms.Padding(0);
             ActionComboBox.TabIndex = index;
             ActionComboBox.TabStop = false;
-            ActionComboBox.Text = "None";
+            ActionComboBox.SelectedIndex = 0;
             ActionComboBox.SelectedIndexChanged += new EventHandler(ActionColumnSelected);
              
             DgvTableLayoutPanel.Controls.Remove(Action_field[index]);
