@@ -157,6 +157,7 @@ namespace MPCController
                 dtPicker.Location = new System.Drawing.Point(351, 33);
                 dtPicker.Margin = new System.Windows.Forms.Padding(0);
                 dtPicker.Name = "MPC" + rowIndex.ToString();
+                dtPicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 dtPicker.Size = new System.Drawing.Size(200, 20);
                 dtPicker.TabIndex = rowIndex;
 
@@ -258,7 +259,10 @@ namespace MPCController
             //cmb.Text = "Select an action";
             //MessageBox.Show(ID_cmb + ":" + Name_cmb + ":" + MPCType_cmb + ":" + action + ":" + checkbox_field[rowIndex_cmb].Checked.ToString());
         }
-
+        public void SetBorderColor(System.Drawing.Color c)
+        {
+            this.BackColor = c;
+        }
         public List<Control> GetAllController()
         {
             return MPC_field_controller;
@@ -339,6 +343,7 @@ namespace MPCController
                 dtPicker.Location = new System.Drawing.Point(351, 33);
                 dtPicker.Margin = new System.Windows.Forms.Padding(0);
                 dtPicker.Name = "MPC" + rowIndex.ToString();
+                dtPicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 dtPicker.Size = new System.Drawing.Size(200, 20);
                 dtPicker.TabIndex = index;
 

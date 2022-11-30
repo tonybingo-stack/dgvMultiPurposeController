@@ -39,6 +39,8 @@ Partial Class Form1
         Me.txtLoadData = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.DgvControl1 = New MPCController.DgvControl()
+        Me.BoderColorBtn = New System.Windows.Forms.Button()
+        Me.ColorDlg = New System.Windows.Forms.ColorDialog()
         Me.SuspendLayout()
         '
         'AddRowdt
@@ -179,17 +181,30 @@ Partial Class Form1
         'DgvControl1
         '
         Me.DgvControl1.AutoSize = True
+        Me.DgvControl1.BackColor = System.Drawing.Color.Gray
+        Me.DgvControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.DgvControl1.CausesValidation = False
         Me.DgvControl1.Location = New System.Drawing.Point(86, 92)
         Me.DgvControl1.Margin = New System.Windows.Forms.Padding(4)
         Me.DgvControl1.Name = "DgvControl1"
-        Me.DgvControl1.Size = New System.Drawing.Size(876, 72)
+        Me.DgvControl1.Size = New System.Drawing.Size(888, 77)
         Me.DgvControl1.TabIndex = 0
+        '
+        'BoderColorBtn
+        '
+        Me.BoderColorBtn.Location = New System.Drawing.Point(442, 463)
+        Me.BoderColorBtn.Name = "BoderColorBtn"
+        Me.BoderColorBtn.Size = New System.Drawing.Size(177, 45)
+        Me.BoderColorBtn.TabIndex = 18
+        Me.BoderColorBtn.Text = "Set Border Color"
+        Me.BoderColorBtn.UseVisualStyleBackColor = True
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1067, 554)
+        Me.Controls.Add(Me.BoderColorBtn)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.txtLoadData)
         Me.Controls.Add(Me.Label3)
@@ -207,7 +222,7 @@ Partial Class Form1
         Me.Controls.Add(Me.AddRowcombo)
         Me.Controls.Add(Me.AddRowdt)
         Me.Controls.Add(Me.DgvControl1)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Form1"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
@@ -232,4 +247,6 @@ Partial Class Form1
     Friend WithEvents txtSaveLoadID As TextBox
     Friend WithEvents txtLoadData As TextBox
     Friend WithEvents Label5 As Label
+    Friend WithEvents BoderColorBtn As Button
+    Friend WithEvents ColorDlg As ColorDialog
 End Class

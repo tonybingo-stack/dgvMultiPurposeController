@@ -26,4 +26,11 @@
     Private Sub LoadByRowIndex_Click(sender As Object, e As EventArgs) Handles LoadByRowIndex.Click
         DgvControl1.LoadDataByIndex(CInt(txtSaveLoadIndex.Text), txtLoadData.Text)
     End Sub
+
+    Private Sub BoderColorBtn_Click(sender As Object, e As EventArgs) Handles BoderColorBtn.Click
+        'ColorDlg.ShowDialog()
+        If ColorDlg.ShowDialog <> Windows.Forms.DialogResult.Cancel Then
+            DgvControl1.SetBorderColor(ColorDlg.Color)
+        End If
+    End Sub
 End Class

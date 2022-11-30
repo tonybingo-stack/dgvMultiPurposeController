@@ -63,13 +63,13 @@
             this.DgvTableLayoutPanel.Controls.Add(this.label_ID, 1, 0);
             this.DgvTableLayoutPanel.Controls.Add(this.label_Name, 2, 0);
             this.DgvTableLayoutPanel.Controls.Add(this.Action1, 4, 1);
-            this.DgvTableLayoutPanel.Location = new System.Drawing.Point(9, 4);
+            this.DgvTableLayoutPanel.Location = new System.Drawing.Point(3, 3);
             this.DgvTableLayoutPanel.Margin = new System.Windows.Forms.Padding(4);
             this.DgvTableLayoutPanel.Name = "DgvTableLayoutPanel";
             this.DgvTableLayoutPanel.RowCount = 2;
-            this.DgvTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.DgvTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.DgvTableLayoutPanel.Size = new System.Drawing.Size(867, 67);
+            this.DgvTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.9375F));
+            this.DgvTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 39.0625F));
+            this.DgvTableLayoutPanel.Size = new System.Drawing.Size(879, 68);
             this.DgvTableLayoutPanel.TabIndex = 0;
             this.DgvTableLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.TableLayoutPanel_Paint);
             // 
@@ -77,7 +77,7 @@
             // 
             this.ID1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.ID1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ID1.Location = new System.Drawing.Point(162, 51);
+            this.ID1.Location = new System.Drawing.Point(186, 52);
             this.ID1.Margin = new System.Windows.Forms.Padding(0);
             this.ID1.Name = "ID1";
             this.ID1.ReadOnly = true;
@@ -90,17 +90,18 @@
             // MPC1
             // 
             this.MPC1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.MPC1.Location = new System.Drawing.Point(428, 44);
+            this.MPC1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MPC1.Location = new System.Drawing.Point(452, 43);
             this.MPC1.Margin = new System.Windows.Forms.Padding(0);
             this.MPC1.Name = "MPC1";
-            this.MPC1.Size = new System.Drawing.Size(265, 22);
+            this.MPC1.Size = new System.Drawing.Size(265, 24);
             this.MPC1.TabIndex = 0;
             // 
             // Name1
             // 
             this.Name1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.Name1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Name1.Location = new System.Drawing.Point(295, 51);
+            this.Name1.Location = new System.Drawing.Point(319, 52);
             this.Name1.Margin = new System.Windows.Forms.Padding(0);
             this.Name1.Name = "Name1";
             this.Name1.ReadOnly = true;
@@ -114,7 +115,7 @@
             // 
             this.CheckOnlyOneRow1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.CheckOnlyOneRow1.AutoSize = true;
-            this.CheckOnlyOneRow1.Location = new System.Drawing.Point(72, 49);
+            this.CheckOnlyOneRow1.Location = new System.Drawing.Point(84, 50);
             this.CheckOnlyOneRow1.Margin = new System.Windows.Forms.Padding(0);
             this.CheckOnlyOneRow1.Name = "CheckOnlyOneRow1";
             this.CheckOnlyOneRow1.Size = new System.Drawing.Size(18, 17);
@@ -126,10 +127,11 @@
             // 
             this.label_Action.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label_Action.AutoSize = true;
-            this.label_Action.Location = new System.Drawing.Point(756, 16);
+            this.label_Action.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Action.Location = new System.Drawing.Point(765, 16);
             this.label_Action.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_Action.Name = "label_Action";
-            this.label_Action.Size = new System.Drawing.Size(47, 17);
+            this.label_Action.Size = new System.Drawing.Size(66, 24);
             this.label_Action.TabIndex = 6;
             this.label_Action.Text = "Action";
             // 
@@ -137,10 +139,11 @@
             // 
             this.CheckOnlyOneRow.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.CheckOnlyOneRow.AutoSize = true;
-            this.CheckOnlyOneRow.Location = new System.Drawing.Point(5, 8);
+            this.CheckOnlyOneRow.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckOnlyOneRow.Location = new System.Drawing.Point(5, 13);
             this.CheckOnlyOneRow.Margin = new System.Windows.Forms.Padding(4);
             this.CheckOnlyOneRow.Name = "CheckOnlyOneRow";
-            this.CheckOnlyOneRow.Size = new System.Drawing.Size(152, 21);
+            this.CheckOnlyOneRow.Size = new System.Drawing.Size(176, 23);
             this.CheckOnlyOneRow.TabIndex = 1;
             this.CheckOnlyOneRow.TabStop = false;
             this.CheckOnlyOneRow.Text = "CheckOnlyOneRow";
@@ -152,10 +155,11 @@
             // 
             this.label_MPC.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label_MPC.AutoSize = true;
-            this.label_MPC.Location = new System.Drawing.Point(542, 16);
+            this.label_MPC.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_MPC.Location = new System.Drawing.Point(560, 16);
             this.label_MPC.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_MPC.Name = "label_MPC";
-            this.label_MPC.Size = new System.Drawing.Size(37, 17);
+            this.label_MPC.Size = new System.Drawing.Size(49, 24);
             this.label_MPC.TabIndex = 5;
             this.label_MPC.Text = "MPC";
             // 
@@ -163,10 +167,11 @@
             // 
             this.label_ID.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label_ID.AutoSize = true;
-            this.label_ID.Location = new System.Drawing.Point(217, 16);
+            this.label_ID.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_ID.Location = new System.Drawing.Point(237, 16);
             this.label_ID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_ID.Name = "label_ID";
-            this.label_ID.Size = new System.Drawing.Size(21, 17);
+            this.label_ID.Size = new System.Drawing.Size(29, 24);
             this.label_ID.TabIndex = 3;
             this.label_ID.Text = "ID";
             // 
@@ -174,10 +179,11 @@
             // 
             this.label_Name.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label_Name.AutoSize = true;
-            this.label_Name.Location = new System.Drawing.Point(338, 16);
+            this.label_Name.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Name.Location = new System.Drawing.Point(354, 16);
             this.label_Name.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_Name.Name = "label_Name";
-            this.label_Name.Size = new System.Drawing.Size(45, 17);
+            this.label_Name.Size = new System.Drawing.Size(61, 24);
             this.label_Name.TabIndex = 4;
             this.label_Name.Text = "Name";
             // 
@@ -189,22 +195,26 @@
             "Select an action",
             "Today",
             "Today+7d"});
-            this.Action1.Location = new System.Drawing.Point(700, 42);
+            this.Action1.Location = new System.Drawing.Point(718, 42);
             this.Action1.Margin = new System.Windows.Forms.Padding(0);
             this.Action1.Name = "Action1";
             this.Action1.Size = new System.Drawing.Size(160, 24);
             this.Action1.TabIndex = 0;
             this.Action1.TabStop = false;
+            this.Action1.Text = "Select an action";
             // 
             // DgvControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.BackColor = System.Drawing.Color.Gray;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.CausesValidation = false;
             this.Controls.Add(this.DgvTableLayoutPanel);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "DgvControl";
-            this.Size = new System.Drawing.Size(880, 75);
+            this.Size = new System.Drawing.Size(888, 76);
             this.DgvTableLayoutPanel.ResumeLayout(false);
             this.DgvTableLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -213,8 +223,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TableLayoutPanel DgvTableLayoutPanel;
         private System.Windows.Forms.CheckBox CheckOnlyOneRow;
         private System.Windows.Forms.Label label_ID;
         private System.Windows.Forms.Label label_Name;
@@ -225,5 +233,6 @@
         private System.Windows.Forms.TextBox Name1;
         private System.Windows.Forms.CheckBox CheckOnlyOneRow1;
         private System.Windows.Forms.ComboBox Action1;
+        private System.Windows.Forms.TableLayoutPanel DgvTableLayoutPanel;
     }
 }
