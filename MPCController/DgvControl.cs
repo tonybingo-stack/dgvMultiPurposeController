@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
 namespace MPCController
@@ -7,66 +10,79 @@ namespace MPCController
     public partial class DgvControl: UserControl
     {
         private int rowIndex;
-        //private CheckBox checkbox_field;
-        //private CheckBox[] checkbox_field = new CheckBox[100];
         private List<CheckBox> checkbox_field = new List<CheckBox>();
-        //private TextBox[] ID_field = new TextBox[100];
         private List<TextBox> ID_field = new List<TextBox>();
-        //private TextBox[] Name_field = new TextBox[100];
         private List<TextBox> Name_field = new List<TextBox>();
-        //private String[] MPC_field = new String[100];
         private List<String> MPC_field = new List<String>();
         private List<Control> MPC_field_controller = new List<Control>();
         private List<ComboBox> Action_field= new List<ComboBox>();
+
+        private int radius = 10;
+        [DefaultValue(5)]
+        [System.Runtime.InteropServices.DllImport("gdi32.dll")]
+        private static extern IntPtr CreateRoundRectRgn(int nLeftRect, int nTopRect,
+            int nRightRect, int nBottomRect, int nWidthEllipse, int nHeightEllipse);
+
+        private GraphicsPath GetRoundRectagle(Rectangle bounds, int radius)
+        {
+            float r = radius;
+            GraphicsPath path = new GraphicsPath();
+            path.StartFigure();
+            path.AddArc(bounds.Left, bounds.Top, r, r, 180, 90);
+            path.AddArc(bounds.Right - r, bounds.Top, r, r, 270, 90);
+            path.AddArc(bounds.Right - r, bounds.Bottom - r, r, r, 0, 90);
+            path.AddArc(bounds.Left, bounds.Bottom - r, r, r, 90, 90);
+            path.CloseFigure();
+            return path;
+        }
+        public int Radius
+        {
+            get { return radius; }
+            set
+            {
+                radius = value;
+                this.RecreateRegion();
+            }
+        }
+        private void RecreateRegion()
+        {
+            var bounds = ClientRectangle;
+
+            //Better round rectangle
+            this.Region = Region.FromHrgn(CreateRoundRectRgn(bounds.Left, bounds.Top,
+                bounds.Right, bounds.Bottom, Radius, radius));
+            this.Invalidate();
+        }
+        protected override void OnSizeChanged(EventArgs e)
+        {
+            base.OnSizeChanged(e);
+            this.RecreateRegion();
+        }
 
         public DgvControl()
         {
             InitializeComponent();
             rowIndex = 0;
-
-            // checkBox
-            //checkbox_field[rowIndex] = CheckOnlyOneRow1;
             CheckOnlyOneRow1.CheckedChanged += new EventHandler(CheckBox_CheckedChanged);
             checkbox_field.Add(CheckOnlyOneRow1);
-
-            //ID
-            //ID_field[rowIndex] = ID1;
             ID_field.Add(ID1);
-
-            //Name{rowIndex}
-            //Name_field[rowIndex] = Name1;
             Name_field.Add(Name1);
-
-            //MPC control
-            //MPC_field[rowIndex] = "DateTimePicker";
             MPC_field.Add("DateTimePicker");
-            //MPC_field_controller[rowIndex] = MPC1;
             MPC_field_controller.Add(MPC1);
-
-            //Action
             Action1.SelectedIndexChanged += new EventHandler(ActionColumnSelected);
-            //Action_field[rowIndex] = Action1;
             Action_field.Add(Action1);
-
         }
 
         private void CheckOnlyOneRow_CheckedChanged(object sender, EventArgs e)
         {
-            //RowControlAdd("ok1", "ok2", "ComboBox", "");
-            //RowControlAdd("ok1", "ok2", "DateTimePicker", "");
         }
 
         private void TableLayoutPanel_Paint(object sender, PaintEventArgs e)
         {
-
-            //MessageBox.Show("ok");
-
         }
         protected void CheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            //Label1.Text = "Called";
             CheckBox chk = sender as CheckBox;
-            //MessageBox.Show(chk.TabIndex.ToString());
             int index = chk.TabIndex;
             if (chk.Checked && CheckOnlyOneRow.Checked)
             {
@@ -90,7 +106,6 @@ namespace MPCController
             //
             // Check{rowIndex}
             //
-            //checkbox_field[rowIndex] = new CheckBox();
             CheckBox chkBox = new CheckBox();
 
             chkBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -107,7 +122,6 @@ namespace MPCController
             checkbox_field.Add(chkBox);
 
             //ID{rowIndex}
-            //ID_field[rowIndex] = new TextBox();
             TextBox txtBox = new TextBox();
 
             txtBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -126,7 +140,6 @@ namespace MPCController
             ID_field.Add(txtBox);
 
             //Name{rowIndex}
-            //Name_field[rowIndex] = new TextBox();
             txtBox = new TextBox();
 
             txtBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -145,12 +158,10 @@ namespace MPCController
             Name_field.Add(txtBox);
 
             //MPC{rowIndex
-            //MPC_field[rowIndex] = mpcControlType;
             MPC_field.Add(mpcControlType);
 
             if (string.Compare(mpcControlType, "DateTimePicker") == 0)
             {
-                //MessageBox.Show("ok");
                 DateTimePicker dtPicker = new DateTimePicker();
 
                 dtPicker.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -180,7 +191,6 @@ namespace MPCController
 
                 DgvTableLayoutPanel.Controls.Add(cbBox, 3, rowIndex+1);
                 MPC_field_controller.Add(cbBox);
-
             }
             else
             {
@@ -189,7 +199,6 @@ namespace MPCController
 
 
             //Action{rowIndex}
-            //Action_field[rowIndex] = new ComboBox();
             ComboBox ActionComboBox = new ComboBox();
 
             ActionComboBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -233,7 +242,6 @@ namespace MPCController
             string action = cmb.Text;
             int rowIndex_cmb = cmb.TabIndex;
             int sid = cmb.SelectedIndex;
-            //MessageBox.Show(sid.ToString());
 
             string ID_cmb = ID_field[rowIndex_cmb].Text;
             string Name_cmb = Name_field[rowIndex_cmb].Text;
@@ -256,12 +264,14 @@ namespace MPCController
                 ((ComboBox)MPC_cmb).SelectedIndex = sid-1;
             }
             cmb.SelectedIndex = 0;
-            //cmb.Text = "Select an action";
-            //MessageBox.Show(ID_cmb + ":" + Name_cmb + ":" + MPCType_cmb + ":" + action + ":" + checkbox_field[rowIndex_cmb].Checked.ToString());
         }
         public void SetBorderColor(System.Drawing.Color c)
         {
             this.BackColor = c;
+        }
+        public void SetBorderRadius(int r)
+        {
+            Radius = r;
         }
         public List<Control> GetAllController()
         {
@@ -327,7 +337,6 @@ namespace MPCController
         }
         public void LoadDataByIndex(int index, string data)
         {
-            //MessageBox.Show(index.ToString());
             string[] d = data.Split(':');
             checkbox_field[index].Checked = d[0]=="True";
             ID_field[index].Text = d[1];
@@ -336,7 +345,6 @@ namespace MPCController
 
             if (string.Compare(d[3], "DateTimePicker") == 0)
             {
-                //MessageBox.Show("ok");
                 DateTimePicker dtPicker = new DateTimePicker();
 
                 dtPicker.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -409,7 +417,6 @@ namespace MPCController
              
             DgvTableLayoutPanel.Controls.Remove(Action_field[index]);
             DgvTableLayoutPanel.Controls.Add(ActionComboBox, 4, index+1);
-
             Action_field[index] = ActionComboBox;
         }
     }

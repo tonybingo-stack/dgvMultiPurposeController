@@ -63,7 +63,7 @@
             this.DgvTableLayoutPanel.Controls.Add(this.label_ID, 1, 0);
             this.DgvTableLayoutPanel.Controls.Add(this.label_Name, 2, 0);
             this.DgvTableLayoutPanel.Controls.Add(this.Action1, 4, 1);
-            this.DgvTableLayoutPanel.Location = new System.Drawing.Point(3, 3);
+            this.DgvTableLayoutPanel.Location = new System.Drawing.Point(2, 2);
             this.DgvTableLayoutPanel.Margin = new System.Windows.Forms.Padding(4);
             this.DgvTableLayoutPanel.Name = "DgvTableLayoutPanel";
             this.DgvTableLayoutPanel.RowCount = 2;
@@ -209,12 +209,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Gray;
-            this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.CausesValidation = false;
             this.Controls.Add(this.DgvTableLayoutPanel);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "DgvControl";
-            this.Size = new System.Drawing.Size(888, 76);
+            this.Size = new System.Drawing.Size(895, 79);
             this.DgvTableLayoutPanel.ResumeLayout(false);
             this.DgvTableLayoutPanel.PerformLayout();
             this.ResumeLayout(false);

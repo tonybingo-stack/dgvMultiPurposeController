@@ -33,4 +33,8 @@
             DgvControl1.SetBorderColor(ColorDlg.Color)
         End If
     End Sub
+
+    Private Sub Radius_Click(sender As Object, e As EventArgs) Handles radius.Click
+        DgvControl1.SetBorderRadius(CInt(TxtRadius.Text))
+    End Sub
 End Class

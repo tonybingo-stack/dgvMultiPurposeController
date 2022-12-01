@@ -38,9 +38,11 @@ Partial Class Form1
         Me.txtSaveLoadID = New System.Windows.Forms.TextBox()
         Me.txtLoadData = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.DgvControl1 = New MPCController.DgvControl()
         Me.BoderColorBtn = New System.Windows.Forms.Button()
         Me.ColorDlg = New System.Windows.Forms.ColorDialog()
+        Me.DgvControl1 = New MPCController.DgvControl()
+        Me.radius = New System.Windows.Forms.Button()
+        Me.TxtRadius = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'AddRowdt
@@ -178,6 +180,15 @@ Partial Class Form1
         Me.Label5.TabIndex = 17
         Me.Label5.Text = "LoadData"
         '
+        'BoderColorBtn
+        '
+        Me.BoderColorBtn.Location = New System.Drawing.Point(217, 464)
+        Me.BoderColorBtn.Name = "BoderColorBtn"
+        Me.BoderColorBtn.Size = New System.Drawing.Size(177, 45)
+        Me.BoderColorBtn.TabIndex = 18
+        Me.BoderColorBtn.Text = "Set Border Color"
+        Me.BoderColorBtn.UseVisualStyleBackColor = True
+        '
         'DgvControl1
         '
         Me.DgvControl1.AutoSize = True
@@ -187,23 +198,34 @@ Partial Class Form1
         Me.DgvControl1.Location = New System.Drawing.Point(86, 92)
         Me.DgvControl1.Margin = New System.Windows.Forms.Padding(4)
         Me.DgvControl1.Name = "DgvControl1"
-        Me.DgvControl1.Size = New System.Drawing.Size(888, 77)
+        Me.DgvControl1.Radius = 5
+        Me.DgvControl1.Size = New System.Drawing.Size(890, 79)
         Me.DgvControl1.TabIndex = 0
         '
-        'BoderColorBtn
+        'radius
         '
-        Me.BoderColorBtn.Location = New System.Drawing.Point(442, 463)
-        Me.BoderColorBtn.Name = "BoderColorBtn"
-        Me.BoderColorBtn.Size = New System.Drawing.Size(177, 45)
-        Me.BoderColorBtn.TabIndex = 18
-        Me.BoderColorBtn.Text = "Set Border Color"
-        Me.BoderColorBtn.UseVisualStyleBackColor = True
+        Me.radius.Location = New System.Drawing.Point(571, 476)
+        Me.radius.Name = "radius"
+        Me.radius.Size = New System.Drawing.Size(103, 33)
+        Me.radius.TabIndex = 19
+        Me.radius.Text = "Set Radius"
+        Me.radius.UseVisualStyleBackColor = True
+        '
+        'TxtRadius
+        '
+        Me.TxtRadius.Location = New System.Drawing.Point(697, 481)
+        Me.TxtRadius.Name = "TxtRadius"
+        Me.TxtRadius.Size = New System.Drawing.Size(100, 22)
+        Me.TxtRadius.TabIndex = 20
+        Me.TxtRadius.Text = "5"
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1067, 554)
+        Me.Controls.Add(Me.TxtRadius)
+        Me.Controls.Add(Me.radius)
         Me.Controls.Add(Me.BoderColorBtn)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.txtLoadData)
@@ -249,4 +271,6 @@ Partial Class Form1
     Friend WithEvents Label5 As Label
     Friend WithEvents BoderColorBtn As Button
     Friend WithEvents ColorDlg As ColorDialog
+    Friend WithEvents radius As Button
+    Friend WithEvents TxtRadius As TextBox
 End Class
